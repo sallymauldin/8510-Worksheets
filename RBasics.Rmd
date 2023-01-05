@@ -1,0 +1,270 @@
+---
+title: 'Worksheet 1: R Basics'
+author: "Amanda Regan"
+date: "2022-12-14"
+output:
+  pdf_document: default
+---
+
+# R Basics
+
+1. values
+2. variables
+3. vectors
+
+
+
+
+_This is the first in a series of worksheets for History 8510 at Clemson University. The goal of these worksheets is simple: practice, practice, practice. The worksheet introduces concepts and techniques and includes prompts for you to practice in this interactive document._
+
+## What is R? 
+To start let's define what exactly R is. R is a language and environment for statistical computing and graphics. R provides a variety of statistical and graphical techniques and its very extensible which makes it an ideal language for historians. 
+
+## Foundational Concepts
+### Values
+
+There are several kinds of variables in R. Numeric, logical, and strings. 
+
+R takes inputs and returns an output. So for example, if our input is a number the output will be a number. Simply typing a number, below or in the console, will return a number. 
+```{r}
+5
+```
+Same thing happens if we add a number with a variable. 
+```{r}
+5.5483
+```
+Numbers can be used to do arithmetic. 
+```{r}
+5 + 5
+```
+
+(@) You try, multiple two numbers. 
+
+
+(@) Can you multiply two numbers and then divide by the result? 
+
+The next type of value is a string. Strings are lines of text. Sometimes these are referred to as character vectors. To create a string, you add text between two quotation marks. For example: 
+```{r}
+"Go Tigers"
+```
+
+(@) Try to create your own string. 
+```{r}
+
+```
+
+You can't add strings using `+` like you can numbers. But there is a function called `paste()` which concatenates character vectors into one. This function is _very_ useful and one you'll use a lot in a variety of circumstances. Here's what that looks like: 
+
+```{r}
+paste("Hello", "Clemson Graduate Students")
+```
+(@) Try it, add two strings together like the above example. 
+```{r}
+
+```
+
+(@) Can you explain what happened in 2-3 sentences? 
+
+>
+
+
+The last type are logical values like `TRUE` and `FALSE`. (Note that these are all caps.)
+
+```{r}
+TRUE
+```
+
+```{r}
+FALSE
+```
+
+These logical values are really useful for testing a statement and comparing values to each other. For example: 
+```{r}
+3 < 4
+```
+3 is indeed less than 4 so the return value is `TRUE`. Here are a few more examples:
+
+```{r}
+5 == 10
+3 < 4
+
+3 == 4 | 3
+```
+(@) Explain, what does the code on each line above do? 
+
+>
+
+(@) Create your own comparison. 
+```{r}
+
+```
+
+---
+
+Values are great but they are made so much more powerful when combined with **Variables** which are a crucial building block of any programming language. Simply put, a variable stores a value. For example if I want x to equal 5 I can do that like this: 
+```{r}
+x <- 5
+```
+`<-` is known as an assignment operator. Technically, you could use `=:` here too but it is considered bad practice and can cause complicated issues when you write more advanced code. So its important to stick with `<-` whenever you are coding in R. 
+
+I can also add a string or character vector to a variable. 
+```{r}
+x <- "Go Tigers!"
+```
+
+Variable names can be almost anything. 
+```{r}
+MyFavoriteNumber <- 25
+```
+Variable or object names must start with a letter, and can only contain letters, numbers, `_`, and `.`. You want your object names to be descriptive, so you’ll need a convention for multiple words. People do it different ways. I tend to use periods but there are several options: 
+
+```
+i_use_snake_case 
+otherPeopleUseCamelCase 
+some.people.use.periods 
+And_aFew.People_RENOUNCEconvention
+```
+
+Whatever you prefer, be consistent and your future self will thank you when your code gets more complex. 
+
+(@) You try, create a variable and assign it a number: 
+
+```{r}
+
+```
+
+(@) Can you assign a string to a variable?
+
+```{r}
+
+```
+
+(@) Once we've assigned a variable we can use that variable to run calculations just like we did with raw numbers.
+```{r}
+x <- 25
+x * 5
+```
+
+R can also handle more complex equations. 
+```{r}
+(x + x)/10
+(x + x * x) - 100
+```
+
+And we could store the output of a calculation in a new variable:
+```{r}
+My.Calculation <- (x + x)*10
+```
+
+(@) You try. Assign a number to x and a number to y. Add those two numbers together.
+```{r}
+
+```
+
+(@) Can you take `x` and `y` and multiply the result by 5? 
+```{r}
+
+```
+
+(@) Try creating two variables with names other than `x ` and `y`. Descriptive names tend to be more useful. Can you multiply the contents of your variables? 
+```{r}
+
+```
+
+(@) Try creating two variables that store strings. Can you concatenate those two variables together? 
+```{r}
+
+```
+
+
+If we have a lot of code and rely on just variables, we're going to have a lot of variables. Thats where vectors come into play. Vectors allow you to store multiple values. All variables in R are actually already vectors. Thats why when R prints an output, there is a `[1]` before it. That means there is one item in that vector. 
+
+```{r}
+myvalue <- "George Washington"
+myvalue
+```
+In this instance "George Washington" is the only item in the variable myvalue. But we could add more. To do that we use the `c()` function which combines values into a vector. 
+```{r}
+myvalue <- c("George Washington", "Franklin Roosevelt", "John Adams")
+myvalue
+```
+You'll notice that the output still only shows `[1]` but that doesn't mean there is only one item in the list. It simply means George Washington is the first. If we use `length()` we can determine the number of items in this vector list. 
+```{r}
+length(myvalue)
+```
+We could get the value of the 2nd or 3rd item in that list like this: 
+```{r}
+myvalue[2]
+```
+We could also create a vector of numbers:
+```{r}
+my.numbers <- c(2, 4, 6, 8)
+```
+
+And we could then do calculations based on these values: 
+```{r}
+my.numbers * 2
+```
+(@) Explain in a few sentences, what happened in the code above?
+
+>
+
+Lets try something slightly different. 
+```{r}
+my.numbers[3] * 2
+```
+(@) Explain in a few sentences, what happened in the code above? 
+
+>
+
+(@) You try, create a list of five items and store it in a descriptive variable. 
+```{r}
+
+```
+
+
+R also has **built in functions**. We've already used a couple of these: `paste()` and `c()`. But there are others, like `sqrt()` which does what you think it does, finds the square root of a number. 
+```{r}
+sqrt(1000)
+```
+
+Many functions have options that can be added to them. For example, the `round()` function allows you to include an option specifying how many digits to round to. 
+
+You can run it without that option and it'll use the default: 
+```{r}
+round(15.492827349)
+```
+
+Or we can tell it to round it to 2 decimal places.
+```{r}
+round(15.492827349, digits = 2)
+```
+
+How would you know what options are available for each function in R? Every function and package in R comes with **documentation** or a **manual** that is built into R studio and can be pulled by by typing a question mark in front of the function in your console. These packages will commonly give you examples of how to use the function and syntax for doing so. They are incredibly useful. 
+
+We can ask R to pull up the documentation like this:
+```{r}
+?round()
+```
+
+(@) Now you try, find the documentation for the function  `signif()`.
+```{r}
+
+```
+
+In real life, you typically you wouldn't want to store this code in your script file. You probably don't need to pull up the documentation for the function every time you run that piece of code. But for the purposes of this worksheet we're adding it to our `.Rmd` document. 
+
+(@) Try to use the console to find the documentation for `floor()`? Try it and then tell me, what does that function do? 
+<
+
+### Data Frames & Packages
+
+
+
+
+
+
+
+
+
+
