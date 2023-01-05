@@ -1,0 +1,6 @@
+---
+title: 'Worksheet 2: Data Structures'
+author: "Amanda Regan"
+date: "2023-01-05"
+output: pdf_document
+---

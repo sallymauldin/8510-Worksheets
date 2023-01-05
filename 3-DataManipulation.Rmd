@@ -1,0 +1,6 @@
+---
+title: 'Worksheet 3: Data Manipulation'
+author: "Amanda Regan"
+date: "2023-01-05"
+output: pdf_document
+---
