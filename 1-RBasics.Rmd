@@ -74,11 +74,25 @@ These logical values are really useful for testing a statement and comparing val
 ```
 3 is indeed less than 4 so the return value is `TRUE`. Here are a few more examples:
 
+R also has relational operators and logical operators. Relational operators test how one object relates to another. We've been using some of these above. 
+
+* Equality `==`
+* Inequality `!=`
+* Less than or Greater than `<` and `>`
+* Less than/greater than or equal to `<=` and `>=`
+
+Logical Operators allow you to combine or change the results of comparisons. 
+* AND `&`
+* OR `|`
+* NOT `!`
+
 ```{r}
 5 == 10
 3 < 4
-
+5 != 10
+5 != 5
 3 == 4 | 3
+3 != 4 & 3 != 5
 ```
 (@) Explain, what does the code on each line above do? 
 
